@@ -1,0 +1,122 @@
+[
+  {
+    "date": "2026-10-17",
+    "category": "fuel",
+    "amount": 155,
+    "description": "Naftë për furgonin",
+    "createdBy": "Pipo A.",
+    "id": "exp_1792214345141_yfz8",
+    "createdAt": "2026-10-17T05:19:05.141Z",
+    "synced": false
+  },
+  {
+    "date": "2026-10-17",
+    "category": "fuel",
+    "amount": 50,
+    "description": "Drekë për ekipin",
+    "createdBy": "Pipo A.",
+    "id": "exp_1792213960342_isyf",
+    "createdAt": "2026-10-17T05:12:40.342Z",
+    "synced": false
+  },
+  {
+    "id": "exp_20261016_01",
+    "date": "2026-10-16",
+    "category": "fuel",
+    "amount": 68.5,
+    "description": "Naftë për furgonin e punës (Mercedes Sprinter)",
+    "createdAt": "2026-10-16T08:15:00.000Z",
+    "createdBy": "Arben K.",
+    "synced": true
+  },
+  {
+    "id": "exp_20261015_02",
+    "date": "2026-10-15",
+    "category": "coffee",
+    "amount": 6.8,
+    "description": "Kafe mëngjesi & ujë mineral për ekipin",
+    "createdAt": "2026-10-15T07:45:00.000Z",
+    "createdBy": "Genti M.",
+    "synced": true
+  },
+  {
+    "id": "exp_20261014_03",
+    "date": "2026-10-14",
+    "category": "food",
+    "amount": 34,
+    "description": "Drekë për punëtorët gjatë rregullimit të kopshtit në vilë",
+    "createdAt": "2026-10-14T12:30:00.000Z",
+    "createdBy": "Arben K.",
+    "synced": true
+  },
+  {
+    "id": "exp_20261012_04",
+    "date": "2026-10-12",
+    "category": "other",
+    "amount": 94.5,
+    "description": "Fije kosore profesionale 3.0mm dhe vaj motori 2T",
+    "createdAt": "2026-10-12T15:10:00.000Z",
+    "createdBy": "Erolind A. (Menaxhment)",
+    "synced": true
+  },
+  {
+    "id": "exp_20261011_05",
+    "date": "2026-10-11",
+    "category": "fuel",
+    "amount": 42,
+    "description": "Benzinë për dy kositëset e barit dhe fryrësen e gjetheve",
+    "createdAt": "2026-10-11T09:20:00.000Z",
+    "createdBy": "Genti M.",
+    "synced": true
+  },
+  {
+    "id": "exp_20261009_06",
+    "date": "2026-10-09",
+    "category": "food",
+    "amount": 29.5,
+    "description": "Drekë e shpejtë në terren pas mbjelljes së pemëve",
+    "createdAt": "2026-10-09T13:00:00.000Z",
+    "createdBy": "Arben K.",
+    "synced": true
+  },
+  {
+    "id": "exp_20261008_07",
+    "date": "2026-10-08",
+    "category": "coffee",
+    "amount": 5.5,
+    "description": "Kafe dhe lëngje freskuese",
+    "createdAt": "2026-10-08T10:15:00.000Z",
+    "createdBy": "Genti M.",
+    "synced": true
+  },
+  {
+    "id": "exp_20261005_08",
+    "date": "2026-10-05",
+    "category": "other",
+    "amount": 145,
+    "description": "Plehrë organik për bar (granula) dhe gërshërë krasitjeje",
+    "createdAt": "2026-10-05T14:40:00.000Z",
+    "createdBy": "Erolind A. (Menaxhment)",
+    "synced": true
+  },
+  {
+    "id": "exp_20261003_09",
+    "date": "2026-10-03",
+    "category": "fuel",
+    "amount": 55,
+    "description": "Naftë për furgon pas rrugës në depot e pemishtes",
+    "createdAt": "2026-10-03T16:00:00.000Z",
+    "createdBy": "Arben K.",
+    "synced": true
+  },
+  {
+    "id": "exp_20261001_10",
+    "date": "2026-10-01",
+    "category": "coffee",
+    "amount": 7.2,
+    "description": "Kafe për ekipin para fillimit të projektit mujor",
+    "createdAt": "2026-10-01T08:00:00.000Z",
+    "createdBy": "Genti M.",
+    "synced": true
+  }
+]

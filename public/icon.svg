@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="laVerdaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B4332" />
+      <stop offset="50%" stop-color="#2D6A4F" />
+      <stop offset="100%" stop-color="#40916C" />
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#74C69D" />
+      <stop offset="100%" stop-color="#D8F3DC" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#081C15" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background rounded squircle with Apple aesthetic -->
+  <rect width="512" height="512" rx="112" fill="url(#laVerdaGrad)" />
+
+  <!-- Inner subtle border -->
+  <rect x="12" y="12" width="488" height="488" rx="100" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4" />
+
+  <!-- Stylized Elegant Landscaping Leaves / Shield Motif -->
+  <g filter="url(#shadow)" transform="translate(64, 56)">
+    <!-- Main Upright Botanical Leaf -->
+    <path d="M192 40 C192 40 310 120 310 240 C310 320 250 370 192 370 C134 370 74 320 74 240 C74 120 192 40 192 40 Z" 
+          fill="url(#leafGrad)" />
+          
+    <!-- Leaf Center Stem / Vein -->
+    <path d="M192 90 L192 360" 
+          stroke="#1B4332" stroke-width="12" stroke-linecap="round" />
+          
+    <!-- Side leaf sprout (representing growth & fresh landscape) -->
+    <path d="M192 210 C240 190 280 220 280 250 C280 280 230 290 192 270" 
+          fill="#52B788" opacity="0.9" />
+
+    <!-- Left lower leaf sprout -->
+    <path d="M192 250 C150 230 110 260 110 285 C110 315 160 320 192 300" 
+          fill="#40916C" opacity="0.95" />
+          
+    <!-- Subtle Modern Monogram 'V' for Verda -->
+    <path d="M140 160 L192 260 L244 160" 
+          fill="none" stroke="rgba(27, 67, 50, 0.4)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Brand Subtext Accent Arc -->
+  <circle cx="256" cy="450" r="6" fill="#D8F3DC" />
+  <circle cx="236" cy="450" r="4" fill="#74C69D" opacity="0.6" />
+  <circle cx="276" cy="450" r="4" fill="#74C69D" opacity="0.6" />
+</svg>
