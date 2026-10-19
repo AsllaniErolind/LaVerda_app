@@ -5,6 +5,7 @@ import {
   googleSignIn,
   getAccessToken,
   logoutGoogle,
+  FIREBASE_PROJECT_ID,
 } from '../services/firebase';
 import {
   getStoredSpreadsheetId,
@@ -12,6 +13,7 @@ import {
   apiGetStatus,
   apiPushAllToSheets,
   apiSaveCredentials,
+  apiSaveSheetId,
   BackendStatusResponse,
 } from '../services/storage';
 import {
@@ -29,6 +31,7 @@ import {
   Copy,
   Check,
   FileJson,
+  Globe,
 } from 'lucide-react';
 
 interface GoogleSheetsModalProps {
@@ -60,10 +63,14 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
   const [showCredentialForm, setShowCredentialForm] = useState<boolean>(false);
 
   const [statusMsg, setStatusMsg] = useState<{ text: string; isError?: boolean } | null>(null);
+  const [unauthorizedDomain, setUnauthorizedDomain] = useState<string | null>(null);
+  const [copiedDomain, setCopiedDomain] = useState<boolean>(false);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [hasOAuthToken, setHasOAuthToken] = useState<boolean>(false);
   const [backendStatus, setBackendStatus] = useState<BackendStatusResponse | null>(null);
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
+
+  const currentDomain = typeof window !== 'undefined' ? window.location.hostname : '';
 
   const refreshStatus = React.useCallback(async () => {
     const tok = await getAccessToken();
@@ -74,7 +81,7 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
       setSpreadsheetId(st.sheetId);
       saveStoredSpreadsheetId(st.sheetId);
     }
-    if (!st.hasServiceAccount) {
+    if (!st.hasServiceAccount && !tok) {
       setShowCredentialForm(true);
     }
   }, []);
@@ -82,6 +89,7 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
   React.useEffect(() => {
     if (isOpen) {
       setStatusMsg(null);
+      setUnauthorizedDomain(null);
       refreshStatus();
     }
   }, [isOpen, refreshStatus]);
@@ -106,10 +114,11 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
     reader.readAsText(file);
   };
 
-  // Validate & Save Service Account Credentials to Backend
+  // Validate & Save Service Account Credentials (works on both Node server and static Vercel)
   const handleSaveServiceAccount = async () => {
     setIsProcessing(true);
     setStatusMsg(null);
+    setUnauthorizedDomain(null);
     try {
       const payload =
         credentialMode === 'json'
@@ -165,15 +174,9 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
     setIsProcessing(true);
     setStatusMsg(null);
     try {
-      const res = await fetch('/api/config/sheet-id', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sheetId: trimmed }),
-      });
-      const data = await res.json();
+      const data = await apiSaveSheetId(trimmed);
       if (data.sheetId) {
         setSpreadsheetId(data.sheetId);
-        saveStoredSpreadsheetId(data.sheetId);
       }
       setInputSheetId('');
       setIsEditingSheetId(false);
@@ -182,8 +185,8 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
       setStatusMsg({
         text:
           lang === 'sq'
-            ? `ID e Google Sheet (${data.sheetId}) dhe GID (${data.sheetGid}) u ruajtën në server!`
-            : `Google Sheet ID (${data.sheetId}) and GID (${data.sheetGid}) saved to server!`,
+            ? `ID e Google Sheet (${data.sheetId}) dhe GID (${data.sheetGid}) u ruajtën!`
+            : `Google Sheet ID (${data.sheetId}) and GID (${data.sheetGid}) saved!`,
       });
     } catch (err: any) {
       setStatusMsg({
@@ -195,7 +198,7 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
     }
   };
 
-  // Push all existing local expenses to Google Sheets manually
+  // Push all existing local expenses & working days to Google Sheets manually
   const handlePushAllExpenses = async () => {
     setIsProcessing(true);
     setStatusMsg(null);
@@ -223,6 +226,7 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
   const handleGoogleConnect = async () => {
     setIsProcessing(true);
     setStatusMsg(null);
+    setUnauthorizedDomain(null);
     try {
       const res = await googleSignIn();
       if (res?.accessToken) {
@@ -245,10 +249,24 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
         });
       }
     } catch (err: any) {
-      setStatusMsg({
-        text: err.message || 'Dështoi lidhja me Google.',
-        isError: true,
-      });
+      const code = String(err?.code || '');
+      const msg = String(err?.message || '');
+      if (code === 'auth/unauthorized-domain' || msg.includes('auth/unauthorized-domain')) {
+        setUnauthorizedDomain(currentDomain || 'your-app.vercel.app');
+        setShowCredentialForm(true);
+        setStatusMsg({
+          text:
+            lang === 'sq'
+              ? `Domeni juaj "${currentDomain}" duhet të shtohet te "Authorized domains" në Firebase Console (ose përdorni Service Account JSON më poshtë që punon menjëherë në Vercel pa Firebase!).`
+              : `Your domain "${currentDomain}" needs to be added to "Authorized domains" in Firebase Console (or use Service Account JSON below, which works on Vercel immediately without Firebase!).`,
+          isError: true,
+        });
+      } else {
+        setStatusMsg({
+          text: err.message || 'Dështoi lidhja me Google.',
+          isError: true,
+        });
+      }
     } finally {
       setIsProcessing(false);
     }
@@ -258,6 +276,12 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
     navigator.clipboard.writeText(email).catch(() => {});
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const handleCopyDomain = (domain: string) => {
+    navigator.clipboard.writeText(domain).catch(() => {});
+    setCopiedDomain(true);
+    setTimeout(() => setCopiedDomain(false), 2000);
   };
 
   return (
@@ -275,8 +299,8 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
               </h3>
               <p className="text-[11px] text-slate-500">
                 {lang === 'sq'
-                  ? 'Konfigurimi i Service Account & Diagnostikimi Live'
-                  : 'Service Account Setup & Live Diagnostics'}
+                  ? 'Konfigurimi i Service Account & Google OAuth (Vercel & Web)'
+                  : 'Service Account & Google OAuth Setup (Vercel & Web)'}
               </p>
             </div>
           </div>
@@ -307,6 +331,75 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
           </div>
         )}
 
+        {/* Specific Fix Guide when auth/unauthorized-domain occurs on Vercel */}
+        {unauthorizedDomain && (
+          <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 space-y-3 text-left">
+            <div className="flex items-center gap-2 text-amber-950 font-bold text-xs">
+              <Globe size={15} className="text-amber-700 shrink-0" />
+              <span>
+                {lang === 'sq'
+                  ? 'Si të rregulloni "auth/unauthorized-domain" në Vercel (2 mënyra):'
+                  : 'How to fix "auth/unauthorized-domain" on Vercel (2 ways):'}
+              </span>
+            </div>
+
+            <div className="space-y-2 text-[11px] text-slate-700 leading-relaxed">
+              <p className="font-semibold text-slate-900">
+                {lang === 'sq'
+                  ? 'Mënyra 1 (Më e shpejta — Pa Firebase): Ngarkoni Service Account JSON më poshtë'
+                  : 'Option 1 (Fastest — No Firebase needed): Upload Service Account JSON below'}
+              </p>
+              <p>
+                {lang === 'sq'
+                  ? 'Përdorni seksionin "Service Account (JSON)" më poshtë. Ai lidhet drejtpërdrejt me Google Sheets në Vercel pa përdorur Firebase Auth fare!'
+                  : 'Use the "Service Account (JSON)" section below. It connects directly to Google Sheets in your browser on Vercel without using Firebase Auth at all!'}
+              </p>
+
+              <div className="pt-1.5 border-t border-amber-200/80 space-y-2">
+                <p className="font-semibold text-slate-900">
+                  {lang === 'sq'
+                    ? 'Mënyra 2: Autorizoni domenin tuaj Vercel në Firebase Console'
+                    : 'Option 2: Authorize your Vercel domain in Firebase Console'}
+                </p>
+                <div className="flex items-center justify-between gap-2 p-2 bg-white rounded-xl border border-amber-200">
+                  <code className="font-mono text-[11px] font-bold text-slate-900 truncate select-all">
+                    {unauthorizedDomain}
+                  </code>
+                  <button
+                    type="button"
+                    onClick={() => handleCopyDomain(unauthorizedDomain)}
+                    className="px-2.5 py-1 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-[10px] inline-flex items-center gap-1 shrink-0 cursor-pointer"
+                  >
+                    {copiedDomain ? <Check size={11} /> : <Copy size={11} />}
+                    <span>
+                      {copiedDomain
+                        ? lang === 'sq'
+                          ? 'U kopjua'
+                          : 'Copied'
+                        : lang === 'sq'
+                        ? 'Kopjo Domenin'
+                        : 'Copy Domain'}
+                    </span>
+                  </button>
+                </div>
+                <a
+                  href={`https://console.firebase.google.com/project/${FIREBASE_PROJECT_ID}/authentication/settings`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full py-2 px-3 rounded-xl bg-amber-900 hover:bg-amber-950 text-white font-bold text-[11px] flex items-center justify-center gap-1.5 shadow-2xs"
+                >
+                  <span>
+                    {lang === 'sq'
+                      ? 'Hape Firebase Console → Authorized Domains → Add Domain'
+                      : 'Open Firebase Console → Authorized Domains → Add Domain'}
+                  </span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Live Connection & Credential Diagnostics Card */}
         <div
           className={`p-4 rounded-2xl border space-y-2.5 text-left ${
@@ -327,8 +420,8 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
                     ? 'Lidhja me Google Sheets: Aktive & E Verifikuar'
                     : 'Google Sheets Connection: Active & Verified'
                   : lang === 'sq'
-                  ? 'Statusi: Kërkohet Konfigurimi i Service Account'
-                  : 'Status: Service Account Setup Required'}
+                  ? 'Statusi: Kërkohet Konfigurimi i Service Account ose OAuth'
+                  : 'Status: Service Account or OAuth Setup Required'}
               </span>
             </div>
             <button
@@ -348,7 +441,7 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
               </span>
               <span className="font-mono font-bold text-slate-900">
                 {backendStatus?.hasServiceAccount
-                  ? 'Service Account JSON (Server)'
+                  ? 'Service Account JSON'
                   : hasOAuthToken
                   ? 'Browser OAuth Token'
                   : lang === 'sq'
@@ -548,8 +641,8 @@ export const GoogleSheetsModal: React.FC<GoogleSheetsModalProps> = ({
                     ? 'Duke verifikuar dhe ngarkuar shpenzimet...'
                     : 'Validating & uploading expenses...'
                   : lang === 'sq'
-                  ? 'Verifiko & Ruaj Kredencialet në Server'
-                  : 'Validate & Save Credentials to Server'}
+                  ? 'Verifiko & Ruaj Kredencialet'
+                  : 'Validate & Save Credentials'}
               </span>
             </button>
           </div>

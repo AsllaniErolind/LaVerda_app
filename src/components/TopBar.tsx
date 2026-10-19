@@ -108,6 +108,21 @@ export const TopBar: React.FC<TopBarProps> = ({
             )}
           </button>
 
+          {/* In-App PWA Install Button (Hidden once installed in standalone mode) */}
+          {!isInstalled && (
+            <button
+              type="button"
+              onClick={onOpenPwaModal}
+              title={t.installApp}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#1B4332] hover:bg-[#143326] text-white text-xs font-bold shadow-xs transition-colors cursor-pointer"
+            >
+              <Download size={13} />
+              <span className="hidden md:inline">
+                {lang === 'sq' ? 'Instalo' : 'Install'}
+              </span>
+            </button>
+          )}
+
           {/* Settings Menu Button (Management Only) */}
           {currentUser.role === 'management' && (
             <button

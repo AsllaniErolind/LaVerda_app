@@ -1,0 +1,239 @@
+[
+  {
+    "id": "wd_20261018_user_arben_phh",
+    "date": "46313",
+    "workerId": "user_arben",
+    "workerName": "Pipo A.",
+    "days": 0.5,
+    "description": "Shi / Mot i keq — u punua vetëm ½ ditë",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T07:17:39.190Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261018_user_genti_1of",
+    "date": "46313",
+    "workerId": "user_genti",
+    "workerName": "Armend A.",
+    "days": 0.5,
+    "description": "Shi / Mot i keq — u punua vetëm ½ ditë",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T07:17:39.190Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261018_user_1792189042733_ctm",
+    "date": "46313",
+    "workerId": "user_1792189042733",
+    "workerName": "Fatjon A.",
+    "days": 0.5,
+    "description": "Shi / Mot i keq — u punua vetëm ½ ditë",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T07:17:39.190Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261018_user_1792305385295_zlk",
+    "date": "46313",
+    "workerId": "user_1792305385295",
+    "workerName": "Lindi",
+    "days": 0.5,
+    "description": "Shi / Mot i keq — u punua vetëm ½ ditë",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T07:17:39.190Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261018_user_1792305385295_k5t",
+    "date": "46313",
+    "workerId": "user_1792305385295",
+    "workerName": "Lindi",
+    "days": 0.5,
+    "description": "Erë e fortë / kushte të papërshtatshme",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T07:11:02.940Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261016_arben",
+    "date": "46311",
+    "workerId": "user_arben",
+    "workerName": "Arben K.",
+    "days": 1,
+    "description": "Ditë e plotë pune — Kositje dhe rregullim i kopshtit në vilë",
+    "createdBy": "Erolind A. (Menaxhment)",
+    "createdAt": "2026-10-16T16:30:00.000Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261014_genti",
+    "date": "46309",
+    "workerId": "user_genti",
+    "workerName": "Genti M.",
+    "days": 1,
+    "description": "Mbjellje pemësh dekorative dhe plehërim",
+    "createdBy": "Erolind A. (Menaxhment)",
+    "createdAt": "2026-10-14T17:00:00.000Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261019_user_1792189042733_dyl",
+    "date": "2026-10-19",
+    "workerId": "user_1792189042733",
+    "workerName": "Fatjon A.",
+    "days": 0.5,
+    "description": "Ka shku me marr Maltin ne aroport",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T08:09:23.832Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261018_user_arben_4rq",
+    "date": "2026-10-18",
+    "workerId": "user_arben",
+    "workerName": "Pipo A.",
+    "days": 1,
+    "description": "Erë e fortë / kushte të papërshtatshme",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T08:02:29.123Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261018_user_genti_v37",
+    "date": "2026-10-18",
+    "workerId": "user_genti",
+    "workerName": "Armend A.",
+    "days": 1,
+    "description": "Erë e fortë / kushte të papërshtatshme",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T08:02:29.123Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261018_user_1792189042733_s1r",
+    "date": "2026-10-18",
+    "workerId": "user_1792189042733",
+    "workerName": "Fatjon A.",
+    "days": 1,
+    "description": "Erë e fortë / kushte të papërshtatshme",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T08:02:29.123Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261018_user_1792305385295_via",
+    "date": "2026-10-18",
+    "workerId": "user_1792305385295",
+    "workerName": "Lindi",
+    "days": 1,
+    "description": "Erë e fortë / kushte të papërshtatshme",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T08:02:29.123Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261018_user_1792310419515_ndp",
+    "date": "2026-10-18",
+    "workerId": "user_1792310419515",
+    "workerName": "Vali",
+    "days": 1,
+    "description": "Erë e fortë / kushte të papërshtatshme",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T08:02:29.123Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261016_genti",
+    "date": "2026-10-16",
+    "workerId": "user_genti",
+    "workerName": "Genti M.",
+    "days": 1,
+    "description": "Ditë e plotë pune — Kositje dhe rregullim i kopshtit në vilë",
+    "createdBy": "Erolind A. (Menaxhment)",
+    "createdAt": "2026-10-16T16:30:00.000Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261015_arben",
+    "date": "2026-10-15",
+    "workerId": "user_arben",
+    "workerName": "Arben K.",
+    "days": 0.5,
+    "description": "Ra shi i rrëmbyeshëm pas orës 12:30 — punëtorët punuan vetëm 1/2 ditë",
+    "createdBy": "Erolind A. (Menaxhment)",
+    "createdAt": "2026-10-15T13:00:00.000Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261015_genti",
+    "date": "2026-10-15",
+    "workerId": "user_genti",
+    "workerName": "Genti M.",
+    "days": 0.5,
+    "description": "Ra shi i rrëmbyeshëm pas orës 12:30 — punëtorët punuan vetëm 1/2 ditë",
+    "createdBy": "Erolind A. (Menaxhment)",
+    "createdAt": "2026-10-15T13:00:00.000Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261014_arben",
+    "date": "2026-10-14",
+    "workerId": "user_arben",
+    "workerName": "Arben K.",
+    "days": 1,
+    "description": "Mbjellje pemësh dekorative dhe plehërim",
+    "createdBy": "Erolind A. (Menaxhment)",
+    "createdAt": "2026-10-14T17:00:00.000Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261007_user_arben_6oq",
+    "date": "2026-10-07",
+    "workerId": "user_arben",
+    "workerName": "Pipo A.",
+    "days": 0.5,
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T08:02:48.147Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261007_user_genti_dfr",
+    "date": "2026-10-07",
+    "workerId": "user_genti",
+    "workerName": "Armend A.",
+    "days": 0.5,
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T08:02:48.147Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261007_user_1792189042733_1j3",
+    "date": "2026-10-07",
+    "workerId": "user_1792189042733",
+    "workerName": "Fatjon A.",
+    "days": 0.5,
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T08:02:48.147Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261007_user_1792305385295_5b8",
+    "date": "2026-10-07",
+    "workerId": "user_1792305385295",
+    "workerName": "Lindi",
+    "days": 0.5,
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T08:02:48.147Z",
+    "synced": true
+  },
+  {
+    "id": "wd_20261007_user_1792310419515_6wx",
+    "date": "2026-10-07",
+    "workerId": "user_1792310419515",
+    "workerName": "Vali",
+    "days": 0.5,
+    "createdBy": "Lemi A. (Menaxhment)",
+    "createdAt": "2026-10-18T08:02:48.147Z",
+    "synced": true
+  }
+]

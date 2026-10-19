@@ -1,23 +1,121 @@
 [
   {
+    "id": "exp_1792392756154_yfbm",
+    "date": "2026-10-19",
+    "category": "coffee",
+    "amount": 20,
+    "description": "Kafe mëngjesi",
+    "createdAt": "2026-10-19T06:52:36.154Z",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "synced": true
+  },
+  {
+    "id": "exp_1792310822326_xwbo",
+    "date": "2026-10-18",
+    "category": "other",
+    "amount": 66,
+    "description": "Pipa digjital",
+    "createdAt": "2026-10-18T08:07:02.326Z",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "synced": true
+  },
+  {
+    "id": "exp_1792310442110_qt3t",
+    "date": "2026-10-18",
+    "category": "fuel",
+    "amount": 50,
+    "description": "Drekë për ekipin",
+    "createdAt": "2026-10-18T08:00:42.110Z",
+    "createdBy": "Lemi A. (Menaxhment)",
+    "synced": true
+  },
+  {
+    "id": "exp_1792305349450_pzec",
+    "date": "2026-10-18",
+    "category": "other",
+    "amount": 50,
+    "createdAt": "2026-10-18T06:35:49.450Z",
+    "createdBy": "Armend A.",
+    "synced": true
+  },
+  {
+    "id": "exp_1792305112462_e9qg",
+    "date": "2026-10-18",
+    "category": "fuel",
+    "amount": 199,
+    "description": "Drekë për ekipin",
+    "createdAt": "2026-10-18T06:31:52.462Z",
+    "createdBy": "Armend A.",
+    "synced": true
+  },
+  {
+    "id": "exp_1792226808688_amj9",
+    "date": "2026-10-17",
+    "category": "fuel",
+    "amount": 54.6,
+    "description": "Naft per kombi",
+    "createdAt": "2026-10-17T08:46:48.688Z",
+    "createdBy": "Armend A.",
+    "synced": true
+  },
+  {
+    "id": "exp_1792226302737_0adu",
+    "date": "2026-10-17",
+    "category": "other",
+    "amount": 88,
+    "createdAt": "2026-10-17T08:38:22.737Z",
+    "createdBy": "Pipo A.",
+    "synced": true
+  },
+  {
+    "id": "exp_1792214345141_yfz8",
     "date": "2026-10-17",
     "category": "fuel",
     "amount": 155,
     "description": "Naftë për furgonin",
-    "createdBy": "Pipo A.",
-    "id": "exp_1792214345141_yfz8",
     "createdAt": "2026-10-17T05:19:05.141Z",
-    "synced": false
+    "createdBy": "Pipo A.",
+    "synced": true
   },
   {
+    "id": "exp_1792213960342_isyf",
     "date": "2026-10-17",
     "category": "fuel",
     "amount": 50,
     "description": "Drekë për ekipin",
-    "createdBy": "Pipo A.",
-    "id": "exp_1792213960342_isyf",
     "createdAt": "2026-10-17T05:12:40.342Z",
-    "synced": false
+    "createdBy": "Pipo A.",
+    "synced": true
+  },
+  {
+    "id": "exp_1792189173466_vh6a",
+    "date": "2026-10-17",
+    "category": "coffee",
+    "amount": 10,
+    "description": "Espresso + Ice Tea, Te GEG",
+    "createdAt": "2026-10-16T22:19:33.466Z",
+    "createdBy": "Pipo A.",
+    "synced": true
+  },
+  {
+    "id": "exp_1792188071727_og2y",
+    "date": "2026-10-17",
+    "category": "food",
+    "amount": 100,
+    "description": "Drekë për ekipin",
+    "createdAt": "2026-10-16T22:01:11.727Z",
+    "createdBy": "Erolind A. (Menaxhment)",
+    "synced": true
+  },
+  {
+    "id": "exp_1792187214226_kt6v",
+    "date": "2026-10-16",
+    "category": "fuel",
+    "amount": 10,
+    "description": "Naftë për furgonin",
+    "createdAt": "2026-10-16T21:46:54.226Z",
+    "createdBy": "Arben K.",
+    "synced": true
   },
   {
     "id": "exp_20261016_01",
@@ -117,6 +215,26 @@
     "description": "Kafe për ekipin para fillimit të projektit mujor",
     "createdAt": "2026-10-01T08:00:00.000Z",
     "createdBy": "Genti M.",
+    "synced": true
+  },
+  {
+    "id": "exp_20260928_11",
+    "date": "2026-09-28",
+    "category": "fuel",
+    "amount": 60,
+    "description": "Naftë për furgon",
+    "createdAt": "2026-09-28T09:00:00.000Z",
+    "createdBy": "Arben K.",
+    "synced": true
+  },
+  {
+    "id": "exp_20260925_12",
+    "date": "2026-09-25",
+    "category": "other",
+    "amount": 85,
+    "description": "Zorë uji 50m dhe spërkatëse profesionale",
+    "createdAt": "2026-09-25T11:30:00.000Z",
+    "createdBy": "Erolind A. (Menaxhment)",
     "synced": true
   }
 ]
